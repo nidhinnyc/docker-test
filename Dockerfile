@@ -1,6 +1,6 @@
 FROM oraclelinux:7.1
 RUN yum -y install yum-plugin-ovl; yum clean all
-RUN yum -y install which deltarpm yum-utils; yum clean all
+RUN yum -y install which deltarpm yum-utils java-1.8.0-openjdk; yum clean all
 
 # Fix bug for docker container running systemd on a host centos box
 RUN (cd /lib/systemd/system/sysinit.target.wants/; for i in *; do [ $i == systemd-tmpfiles-setup.service ] || rm -f $i; done); \
