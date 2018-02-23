@@ -1,12 +1,10 @@
 #!/bin/bash
-docker build -t elastic .
+echo " => Starting container"
 docker exec -ti $(docker run \
 -d \
 --rm \
--h elastic \
+-h dbdocker \
 --privileged \
 -v /sys/fs/cgroup:/sys/fs/cgroup:ro \
--v /data:/usr/share/elasticsearch/data \
--p 9200:9200 \
--i -t elastic  /usr/sbin/init \
+-i -t ol7dbus  /usr/sbin/init \
 ) /bin/bash
